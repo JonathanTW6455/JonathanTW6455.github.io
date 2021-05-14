@@ -7,7 +7,7 @@ function doGet(e){
   }
 
   var nowDatetime = new Date().toLocaleString();
-  userProperties.setProperty('temperatureText', nowDatetime  + "的溫度是 " + temperature + " 瑞佑小雞雞");
+  userProperties.setProperty('temperatureText', nowDatetime  + "的溫度是 " + temperature + " 度");
   
   var returnText = temperature + " OK";
   var textOutput = ContentService.createTextOutput(returnText)
