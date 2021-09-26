@@ -7,7 +7,7 @@ function doGet(e){
   }
 
   var nowDatetime = new Date().toLocaleString();
-  userProperties.setProperty('temperatureText', nowDatetime  + "的溫度是 " + temperature + " 度");
+  userProperties.setProperty('temperatureText', nowDatetime  + "您的血氧濃度是 " + temperature + " %");
   
   var returnText = temperature + " OK";
   var textOutput = ContentService.createTextOutput(returnText)
@@ -26,7 +26,7 @@ function doPost(e) {
   }
 
   if (typeof keyWords === 'undefined') {
-    var keyWords = ["溫度", "幾度", "熱不熱"];
+    var keyWords = ["血氧濃度", "幾度", "熱不熱"];
   }
   else {
     keyWords = keyWords.concat(["溫度", "幾度", "熱不熱"]);
