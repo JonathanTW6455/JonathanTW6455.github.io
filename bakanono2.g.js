@@ -39,7 +39,7 @@ function doPost(e) {
     var keyWords = ["血氧濃度", "幾度", "熱不熱"];
   }
   else {
-    keyWords = keyWords.concat(["血氧濃度", "幾度", "熱不熱"]);
+    keyWords = keyWords.concat(["血氧濃度"]);
   }
   
   var returnText;
