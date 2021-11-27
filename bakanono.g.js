@@ -7,7 +7,16 @@ function doGet(e){
   }
 
   var nowDatetime = new Date().toLocaleString();
-  userProperties.setProperty('temperatureText', nowDatetime  + "您的血氧濃度是 " + temperature + " %");
+    if (temperature<37.5){
+     userProperties.setProperty('temperatureText', nowDatetime  + "您的體溫是 " + temperature + " 度");
+    }
+   if (temperature>=37.5){
+     userProperties.setProperty('temperatureText', nowDatetime  + "您的體溫是 " + temperature + " 度"+"偵測到體溫偏高，請留意身體狀況並且盡速就醫");
+    }
+   if (temperature=0){
+     userProperties.setProperty('temperatureText', nowDatetime  + "錯誤，無法取得數值，請確認是否正確連接 " );
+    }
+ 
   
   var returnText = temperature + " OK";
   var textOutput = ContentService.createTextOutput(returnText)
