@@ -8,13 +8,13 @@ function doGet(e){
 
   var nowDatetime = new Date().toLocaleString();
    if (temperature==0){
-     userProperties.setProperty('temperatureText', nowDatetime  + "錯誤，無法取得數值，請確認是否正確連接 " );
+     userProperties.setProperty('temperatureText', nowDatetime  + " 錯誤，無法取得數值，請確認是否正確連接 " );
     }
     if (temperature<37.5 && temperature>0){
-     userProperties.setProperty('temperatureText', nowDatetime  + "您的體溫是 " + temperature + " 度");
+     userProperties.setProperty('temperatureText', nowDatetime  + " 您的體溫是 " + temperature + " 度");
     }
    if (temperature>=37.5){
-     userProperties.setProperty('temperatureText', nowDatetime  + "您的體溫是 " + temperature + " 度"+"偵測到體溫偏高，請留意身體狀況並且盡速就醫");
+     userProperties.setProperty('temperatureText', nowDatetime  + " 您的體溫是 " + temperature + " 度"+"偵測到體溫偏高，請留意身體狀況並且盡速就醫");
     }
   
  
