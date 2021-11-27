@@ -11,7 +11,7 @@ function doGet(e){
   {
   userProperties.setProperty('temperatureText', nowDatetime  + "您的血氧濃度是 " + temperature + " %"+"無法取得數值，請確認是否正確使用並重新測量");
   }
-  if(1<temperature<95)
+  if(temperature<95 && temperature>1)
   {
   userProperties.setProperty('temperatureText', nowDatetime  + "您的血氧濃度是 " + temperature + " %"+"血氧濃度偏低，請留意身體狀況並盡速就醫");
   }
