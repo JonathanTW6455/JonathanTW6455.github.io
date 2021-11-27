@@ -36,10 +36,10 @@ function doPost(e) {
   }
 
   if (typeof keyWords === 'undefined') {
-    var keyWords = ["血氧濃度", "幾度", "熱不熱"];
+    var keyWords = ["溫度", "幾度", "熱不熱"];
   }
   else {
-    keyWords = keyWords.concat(["血氧濃度", "幾度", "熱不熱"]);
+    keyWords = keyWords.concat(["溫度", "幾度", "熱不熱"]);
   }
   
   var returnText;
