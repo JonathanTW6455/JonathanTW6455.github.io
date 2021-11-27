@@ -13,7 +13,7 @@ function doGet(e){
   }
   if(temperature>95)
   { 
-  userProperties.setProperty('temperatureText', nowDatetime  + " 您的血氧濃度是 " + temperature + " %"+"無法取得數值，請確認是否正確使用並重新測量");
+  userProperties.setProperty('temperatureText', nowDatetime  + " 您的血氧濃度是 " + temperature + " %");
   }
   if(temperature<95 && temperature>0)
   {
