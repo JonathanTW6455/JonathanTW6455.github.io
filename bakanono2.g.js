@@ -60,7 +60,7 @@ function doPost(e) {
       returnText =  temperatureText;
     }
     else {
-      returnText = "抱歉我無法取得溫度";
+      returnText = "抱歉我無法取得血氧濃度";
     }
   }
   else {
