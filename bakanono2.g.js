@@ -7,8 +7,18 @@ function doGet(e){
   }
 
   var nowDatetime = new Date().toLocaleString();
+  if(temperature>95)
+  {
   userProperties.setProperty('temperatureText', nowDatetime  + "您的血氧濃度是 " + temperature + " %"+"無法取得數值，請確認是否正確使用並重新測量");
-  
+  }
+  if(0<temperature<95)
+  {
+  userProperties.setProperty('temperatureText', nowDatetime  + "您的血氧濃度是 " + temperature + " %"+"血氧濃度偏低，請留意身體狀況並盡速就醫");
+  }
+  if(temperature=0)
+  {
+  userProperties.setProperty('temperatureText', nowDatetime  + "錯誤，無法取得血氧濃度，請確認是否正確連接 " );
+  }
   var returnText = temperature + " OK";
   var textOutput = ContentService.createTextOutput(returnText)
   return textOutput;
