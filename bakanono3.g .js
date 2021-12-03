@@ -7,8 +7,23 @@ function doGet(e){
   }
 
   var nowDatetime = new Date().toLocaleString();
-  userProperties.setProperty('temperatureText', nowDatetime  + "您的血氧濃度是 " + temperature + " %"+"低於正常值，請留意健康狀況並諮詢醫師");
-  
+  if(temperature==0)
+  {
+  userProperties.setProperty('temperatureText', nowDatetime  + " 錯誤，無法取得心率，請確認是否正確連接 " );
+  }
+  if(temperature>40 && temperature<60)
+  { 
+  userProperties.setProperty('temperatureText', nowDatetime  + " 您的心率是 " + temperature + "心率偏低，請留意身體狀況並盡速就醫");
+  }
+  if(temperature>59 && temperature<101)
+  { 
+  userProperties.setProperty('temperatureText', nowDatetime  + " 您的心率是 " + temperature);
+  }
+  if(temperature>100 && temperature>0)
+  {
+  userProperties.setProperty('temperatureText', nowDatetime  + " 您的心率是 " + temperature + "心率過高，請留意身體狀況並盡速就醫");
+  }
+ 
   var returnText = temperature + " OK";
   var textOutput = ContentService.createTextOutput(returnText)
   return textOutput;
@@ -26,10 +41,10 @@ function doPost(e) {
   }
 
   if (typeof keyWords === 'undefined') {
-    var keyWords = ["血氧濃度", "幾度", "熱不熱"];
+    var keyWords = ["心率"];
   }
   else {
-    keyWords = keyWords.concat(["血氧濃度", "幾度", "熱不熱"]);
+    keyWords = keyWords.concat(["心率"]);
   }
   
   var returnText;
@@ -50,7 +65,7 @@ function doPost(e) {
       returnText =  temperatureText;
     }
     else {
-      returnText = "抱歉我無法取得溫度";
+      returnText = "抱歉我無法取得心率";
     }
   }
   else {
