@@ -1,7 +1,7 @@
 var userProperties = PropertiesService.getUserProperties();
 
 function doGet(e){
-  var temperature = e.parameter.t;
+  var temperature = e.parameter.r;
   if (!temperature) {
     return;
   }
