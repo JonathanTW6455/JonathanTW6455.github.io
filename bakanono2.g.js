@@ -4,7 +4,7 @@ function doGet(e){
   var  temperature = e.parameter.t ;
   var spov = e.parameter.s;
   var heartbeat = e.parameter.h;
-  if (!temperature && !spov && !heartbeat){
+  if (!temperature || !spov || !heartbeat){
    
     return;
   }
