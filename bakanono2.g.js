@@ -4,7 +4,7 @@ function doGet(e){
   var  temperature = e.parameter.t ;
   var SPO2V = e.parameter.s;
   var heartbeat = e.parameter.h;
-  if (!temperature && !SPO2 && !heartbeat){
+  if (!temperature && !SPO2V && !heartbeat){
    
     return;
   }
@@ -148,11 +148,11 @@ var replyTokenH = msg.events[0].replyToken;
       returnTextT =  temperatureText;
     }
     else {
-      returnTextS = "抱歉我無法取得溫度";
+      returnTextT = "抱歉我無法取得溫度";
     }
   }
   else {
-    returnTextH = getMisunderstandWords();
+    returnTextT = getMisunderstandWords();
   }
   
    if (hasKeywordS) {
