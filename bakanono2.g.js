@@ -4,18 +4,11 @@ function doGet(e){
   var  temperature = e.parameter.t ;
   var SPO2 = e.parameter.s;
   var heartbeat = e.parameter.h;
-  if (!temperature){
+  if (!temperature && !SPO2 && !heartbeat){
    
     return;
   }
-if (!SPO2){
-   
-    return;
-  }
-  if (!heartbeat){
-   
-    return;
-  }
+
   var nowDatetime = new Date().toLocaleString();
   if(temperature==0)
   {
