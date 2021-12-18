@@ -2,9 +2,9 @@ var userProperties = PropertiesService.getUserProperties();
 
 function doGet(e){
   var  temperature = e.parameter.t ;
-  var SPOV = e.parameter.s;
+  var spov = e.parameter.s;
   var heartbeat = e.parameter.h;
-  if (!temperature && !SPOV && !heartbeat){
+  if (!temperature && !spov && !heartbeat){
    
     return;
   }
@@ -23,17 +23,17 @@ function doGet(e){
   userProperties.setProperty('temperatureText', nowDatetime  + " 您的體溫是 " + temperature + " 度"+"體溫偏高，請留意身體狀況並盡速就醫");
   }
   
- if(SPOV==0)
+ if(spov==0)
   {
   userProperties.setProperty('SPO2Text', nowDatetime  + " 錯誤，無法取得血氧濃度，請確認是否正確連接 " );
   }
-  if(SPOV>95)
+  if(spov>95)
   { 
-  userProperties.setProperty('SPO2Text', nowDatetime  + " 您的血氧濃度是 " + SPOV + " %");
+  userProperties.setProperty('SPO2Text', nowDatetime  + " 您的血氧濃度是 " + spov + " %");
   }
-  if(SPOV<95 && SPOV>0)
+  if(spov<95 && spov>0)
   {
-  userProperties.setProperty('SPO2Text', nowDatetime  + " 您的血氧濃度是 " + SPOV + " %"+"血氧濃度偏低，請留意身體狀況並盡速就醫");
+  userProperties.setProperty('SPO2Text', nowDatetime  + " 您的血氧濃度是 " + spov + " %"+"血氧濃度偏低，請留意身體狀況並盡速就醫");
   }
   
   if(heartbeat==0)
@@ -56,7 +56,7 @@ function doGet(e){
   var textOutputT = ContentService.createTextOutput(returnTextT)
   return textOutputT;
   
-   var returnTextS = SPOV + " OK";
+   var returnTextS = spov + " OK";
   var textOutputS = ContentService.createTextOutput(returnTextS)
   return textOutputS;
   
